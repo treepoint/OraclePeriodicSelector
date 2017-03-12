@@ -26,5 +26,11 @@
     <Setting Name="regularCheck" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="titleApplication" Type="System.String" Scope="User">
+      <Value Profile="(Default)">OraclePeriodicSelector</Value>
+    </Setting>
+    <Setting Name="fileToExecute" Type="System.String" Scope="User">
+      <Value Profile="(Default)">select.sql</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

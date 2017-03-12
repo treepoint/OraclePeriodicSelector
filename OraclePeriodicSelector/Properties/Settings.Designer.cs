@@ -118,5 +118,29 @@ namespace OraclePeriodicSelector.Properties {
                 this["regularCheck"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("OraclePeriodicSelector")]
+        public string titleApplication {
+            get {
+                return ((string)(this["titleApplication"]));
+            }
+            set {
+                this["titleApplication"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("select.sql")]
+        public string fileToExecute {
+            get {
+                return ((string)(this["fileToExecute"]));
+            }
+            set {
+                this["fileToExecute"] = value;
+            }
+        }
     }
 }
