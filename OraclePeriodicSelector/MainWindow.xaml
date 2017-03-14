@@ -5,37 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OraclePeriodicSelector"
         mc:Ignorable="d"
-        Title="ORACLE PERIODIC SELECTOR" Height="340" Width="600" MinWidth="600" MinHeight="340" >
-    <Grid RenderTransformOrigin="0.499,0.707" Background="#FF595959" >
+        Title="ORACLE PERIODIC SELECTOR" Height="357" Width="600" MinWidth="600" MinHeight="340" >
+    <Grid RenderTransformOrigin="0.499,0.707" Background="#FF595959" Margin="0,-3,0,0" >
 
-        <TextBlock  Margin="10,12,0,0" Text="ЛОГИН:" FontSize="16" HorizontalAlignment="Left" Width="70" Height="24" VerticalAlignment="Top" Foreground="White" />
-        <TextBox TextWrapping="Wrap" Padding="0" AutoWordSelection="True" x:Name="loginInput" Margin="85,12,0,0" IsTabStop="True" TabIndex="0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140"/>
+        <TextBlock  Margin="10,12,0,0" Text=" ЛОГИН:" FontSize="16" HorizontalAlignment="Left" Width="70" Height="24" VerticalAlignment="Top" Foreground="White" />
+        <TextBox TextWrapping="Wrap" Padding="0" AutoWordSelection="True" x:Name="loginInput" Margin="80,12,0,0" IsTabStop="True" TabIndex="0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130"/>
 
         <TextBlock  Margin="10,53,0,0" Text="ПАРОЛЬ:" FontSize="16" Height="24" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Left" Width="70"/>
-        <PasswordBox x:Name="passwordInput"  Margin="85,53,0,0" VerticalContentAlignment="Center" IsTabStop="True" TabIndex="1" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140"/>
+        <PasswordBox x:Name="passwordInput"  Margin="80,53,0,0" VerticalContentAlignment="Center" IsTabStop="True" TabIndex="1" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130"/>
 
         <TextBlock x:Name="host" Margin="242,12,285,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Height="24" Foreground="White"><Run Text="АДРЕС:"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="hostInput" Height="19" Margin="300,12,19,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBox x:Name="hostInput" Height="19" Margin="300,12,2,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="11"/>
 
         <TextBlock x:Name="port" Margin="242,36,291,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Height="22" Foreground="White"><Run Text="ПОРТ:"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="portInput" Height="19" Margin="300,36,19,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBox x:Name="portInput" Height="19" Margin="300,36,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="11" PreviewTextInput="OnlyDigitInputCheck"/>
 
         <TextBlock x:Name="serviceName" Margin="242,58,232,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Text="ИМЯ СЕРВИСА:" Foreground="White"/>
-        <TextBox x:Name="serviceNameInput" Height="19" Margin="345,58,19,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBox x:Name="serviceNameInput" Height="19" Margin="345,58,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="11"/>
 
-        <Button x:Name="connectButton" Margin="10,88,0,0" Content="Запустить" Click="ConnectButtonClick" ClickMode="Press" TabIndex="2" HorizontalAlignment="Left" Width="93" Height="33" VerticalAlignment="Top"/>
-        <Button x:Name="buttonStop" Margin="108,88,0,0" Content="Завершить" Click="ButtonStopClick" ClickMode="Press" IsCancel="True" IsEnabled="False" IsTabStop="False" Height="33" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100"/>
+        <Button x:Name="connectButton" Margin="10,88,0,0" Content="Запустить" Click="ConnectButtonClick" ClickMode="Press" TabIndex="2" HorizontalAlignment="Left" Width="92" Height="33" VerticalAlignment="Top"/>
+        <Button x:Name="buttonStop" Margin="118,88,0,0" Content="Завершить" Click="ButtonStopClick" ClickMode="Press" IsCancel="True" IsEnabled="False" IsTabStop="False" Height="33" VerticalAlignment="Top" HorizontalAlignment="Left" Width="92"/>
 
-        <CheckBox x:Name="timerCheck" Content="Выполнять каждые" Margin="0,108,118,0" VerticalAlignment="Top" IsChecked="True" IsTabStop="false" Foreground="White" Height="18" HorizontalAlignment="Right" Width="125"/>
-        <ComboBox x:Name="intervalCombo" Margin="0,105,63,0" VerticalAlignment="Top" IsReadOnly="True" Height="21" SelectedIndex="0" IsTabStop="False" HorizontalAlignment="Right" Width="50">
-            <TextBlock>30</TextBlock>
-            <TextBlock>60</TextBlock>
-            <TextBlock>90</TextBlock>
-            <TextBlock>120</TextBlock>
-            <TextBlock>180</TextBlock>
-        </ComboBox>
-        <TextBlock x:Name="minutText" Margin="0,108,21,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Foreground="White" HorizontalAlignment="Right" Width="37"><Run Text="минут"/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="resultText" TextAlignment="Center" Background="White" Margin="0,134,0,0"><Run Text="Укажите данные для входа."/><LineBreak/><Run/><LineBreak/><Run Text=" Файл для выполнения - 'select.sql' необходимо разместить в папке с приложением."/></TextBlock>
-        <CheckBox x:Name="rememberInputs" Content="Запомнить настройки" Margin="0,88,21,0" VerticalAlignment="Top" BorderBrush="White" Foreground="White" HorizontalAlignment="Right" Width="222"/>
+        <CheckBox x:Name="timerCheck" Content="Выполнять селект каждые" Margin="0,108,186,0" VerticalAlignment="Top" IsChecked="True" IsTabStop="false" Foreground="White" Height="18" HorizontalAlignment="Right" Width="164"/>
+        <TextBlock x:Name="minutText" Margin="0,107,92,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Foreground="White" HorizontalAlignment="Right" Width="54"><Run Text="минут("/><Run Text="ы"/><Run Text=")"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="resultText" TextAlignment="Center" Background="White" Margin="2,134,2,2" TextWrapping="Wrap"><Run Text="Укажите данные для входа."/>
+            <LineBreak/><Run/>
+            <LineBreak/><Run Text=" Файл для выполнения - 'select.sql' необходимо разместить в папке с приложением."/>
+        </TextBlock>
+        <CheckBox x:Name="rememberInputs" Content="Запоминать настройки" Margin="0,88,128,0" VerticalAlignment="Top" BorderBrush="White" Foreground="White" HorizontalAlignment="Right" Width="222"/>
+        <TextBox x:Name="intervalCombo" Height="19" Margin="0,106,151,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" TextAlignment="Center" HorizontalAlignment="Right" Width="30" PreviewTextInput="OnlyDigitInputCheck"/>
     </Grid>
 </Window>
