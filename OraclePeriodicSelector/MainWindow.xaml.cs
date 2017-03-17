@@ -28,7 +28,7 @@ namespace OraclePeriodicSelector
     public class SupportFunc
     {
         public string ReturnTimeString()
-        { return string.Format("{0}{1}{2}{1}{0}", Environment.NewLine, "=======", DateTime.Now); }
+        { return string.Format("{1}{2}{1}{0}", Environment.NewLine, "=======", DateTime.Now); }
 
         public string GetFileToExecute(string fileName)
         {
@@ -109,7 +109,7 @@ namespace OraclePeriodicSelector
                 return;
                 //Необходимо сделать событие по которому будем прерывать выполнение, обновлять кнопки и прочее.
             }
-                
+
             OracleCommand command = new OracleCommand(sqlToExecute, conn);  //Выполняем команду в оралке. Передаем собственно команду и объект с открытым коннектом
 
             using (OracleDataReader reader = command.ExecuteReader()) //По факту мы просто юзаем метод получения всех строк из селекта 
@@ -118,7 +118,7 @@ namespace OraclePeriodicSelector
                 {
                    while (reader.Read()) //Проходимся по массиву данных который вернули reader
                     {
-                       result = string.Format("{0}{1}{2}", result, Environment.NewLine, reader.GetString(0));
+                       result = string.Format("{0}{1}{2}", result, Environment.NewLine, Convert.ToString(reader.GetValue(0)));
                     }
                     FlashIconEvent(); //Моргаем в панели задач
                 }
@@ -130,7 +130,9 @@ namespace OraclePeriodicSelector
         }
 
         public void ExecuteStop()
-        { timer.Stop(); }
+        { timer.Stop();
+          timer.Interval = new TimeSpan(0, 0, 0); //Обнуляем интервал, потому что при следующем запуске он может быть уже другой
+        }
 
         public void OnTimerStartExecute()
         {
@@ -189,7 +191,9 @@ namespace OraclePeriodicSelector
         //Обновляем результат по евенту
         protected void ResultUpdate(string result)
         {
-            Dispatcher.Invoke(() => { resultText.Text = result; });
+            Dispatcher.Invoke(() => {
+                resultText.Document.Blocks.Clear();
+                resultText.AppendText(result); });
         }
 
         public Tuple<string, int> CheckAppParameters()
@@ -256,6 +260,7 @@ namespace OraclePeriodicSelector
             {
                 connectButton.IsEnabled = false;
                 OS.StartExecute(sender, e);    //Запускаем одиночное выполнение селекта
+                connectButton.IsEnabled = true;
             }
         }
 

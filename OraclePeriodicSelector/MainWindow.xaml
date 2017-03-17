@@ -15,7 +15,7 @@
         <PasswordBox x:Name="passwordInput"  Margin="80,53,0,0" VerticalContentAlignment="Center" IsTabStop="True" TabIndex="1" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130"/>
 
         <TextBlock x:Name="host" Margin="242,12,285,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Height="24" Foreground="White"><Run Text="АДРЕС:"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="hostInput" Height="19" Margin="300,12,2,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="11"/>
+        <TextBox x:Name="hostInput" Height="19" Margin="300,12,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="11"/>
 
         <TextBlock x:Name="port" Margin="242,36,291,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Height="22" Foreground="White"><Run Text="ПОРТ:"/><LineBreak/><Run/></TextBlock>
         <TextBox x:Name="portInput" Height="19" Margin="300,36,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="11" PreviewTextInput="OnlyDigitInputCheck"/>
@@ -28,11 +28,21 @@
 
         <CheckBox x:Name="timerCheck" Content="Выполнять селект каждые" Margin="0,108,186,0" VerticalAlignment="Top" IsChecked="True" IsTabStop="false" Foreground="White" Height="18" HorizontalAlignment="Right" Width="164"/>
         <TextBlock x:Name="minutText" Margin="0,107,92,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Foreground="White" HorizontalAlignment="Right" Width="54"><Run Text="минут("/><Run Text="ы"/><Run Text=")"/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="resultText" TextAlignment="Center" Background="White" Margin="2,134,2,2" TextWrapping="Wrap"><Run Text="Укажите данные для входа."/>
-            <LineBreak/><Run/>
-            <LineBreak/><Run Text=" Файл для выполнения - 'select.sql' необходимо разместить в папке с приложением."/>
-        </TextBlock>
+
+
         <CheckBox x:Name="rememberInputs" Content="Запоминать настройки" Margin="0,88,128,0" VerticalAlignment="Top" BorderBrush="White" Foreground="White" HorizontalAlignment="Right" Width="222"/>
         <TextBox x:Name="intervalCombo" Height="19" Margin="0,106,151,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" TextAlignment="Center" HorizontalAlignment="Right" Width="30" PreviewTextInput="OnlyDigitInputCheck"/>
+        <RichTextBox x:Name="resultText" Margin="2,126,1,2" Block.TextAlignment="Center" VerticalScrollBarVisibility="Auto">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="Укажите данные для входа."/>
+                    <Run Text=" "/>
+                    <Run/>
+                </Paragraph>
+                <Paragraph>
+                    <Run Text="Файл для выполнения - 'select.sql' необходимо разместить в папке с приложением."/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
     </Grid>
 </Window>
